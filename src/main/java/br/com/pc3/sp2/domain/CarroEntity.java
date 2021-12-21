@@ -111,4 +111,94 @@ public class CarroEntity implements Serializable {
     public void setCliente(ClienteEntity cliente) {
         this.cliente = cliente;
     }
+
+    public CarroEntity(String placa, String cor, Integer ano, Integer anoModelo, String marca, String modelo, OficinaEntity oficina, ClienteEntity cliente) {
+        this.placa = placa;
+        this.cor = cor;
+        this.ano = ano;
+        this.anoModelo = anoModelo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.oficina = oficina;
+        this.cliente = cliente;
+    }
+
+    public CarroEntity(String placa, String cor, Integer ano, Integer anoModelo, String marca, String modelo) {
+        this.placa = placa;
+        this.cor = cor;
+        this.ano = ano;
+        this.anoModelo = anoModelo;
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public CarroEntity(String placa, String cor, Integer ano, Integer anoModelo, String marca, String modelo, OficinaEntity oficina) {
+        this.placa = placa;
+        this.cor = cor;
+        this.ano = ano;
+        this.anoModelo = anoModelo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.oficina = oficina;
+    }
+
+    public CarroEntity(String placa, String cor, Integer ano, Integer anoModelo, String marca, String modelo, ClienteEntity cliente) {
+        this.placa = placa;
+        this.cor = cor;
+        this.ano = ano;
+        this.anoModelo = anoModelo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cliente = cliente;
+    }
+
+    public CarroEntity(String placa) {
+        this.placa = placa;
+    }
+
+    public CarroEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "CarroEntity{" +
+                "placa='" + placa + '\'' +
+                ", cor='" + cor + '\'' +
+                ", ano=" + ano +
+                ", anoModelo=" + anoModelo +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", oficina=" + oficina +
+                ", cliente=" + cliente +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CarroEntity that)) return false;
+
+        if (!getPlaca().equals(that.getPlaca())) return false;
+        if (getCor() != null ? !getCor().equals(that.getCor()) : that.getCor() != null) return false;
+        if (getAno() != null ? !getAno().equals(that.getAno()) : that.getAno() != null) return false;
+        if (getAnoModelo() != null ? !getAnoModelo().equals(that.getAnoModelo()) : that.getAnoModelo() != null)
+            return false;
+        if (getMarca() != null ? !getMarca().equals(that.getMarca()) : that.getMarca() != null) return false;
+        if (getModelo() != null ? !getModelo().equals(that.getModelo()) : that.getModelo() != null) return false;
+        if (getOficina() != null ? !getOficina().equals(that.getOficina()) : that.getOficina() != null) return false;
+        return getCliente() != null ? getCliente().equals(that.getCliente()) : that.getCliente() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPlaca().hashCode();
+        result = 31 * result + (getCor() != null ? getCor().hashCode() : 0);
+        result = 31 * result + (getAno() != null ? getAno().hashCode() : 0);
+        result = 31 * result + (getAnoModelo() != null ? getAnoModelo().hashCode() : 0);
+        result = 31 * result + (getMarca() != null ? getMarca().hashCode() : 0);
+        result = 31 * result + (getModelo() != null ? getModelo().hashCode() : 0);
+        result = 31 * result + (getOficina() != null ? getOficina().hashCode() : 0);
+        result = 31 * result + (getCliente() != null ? getCliente().hashCode() : 0);
+        return result;
+    }
 }

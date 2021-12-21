@@ -67,4 +67,55 @@ public class ClienteEntity implements Serializable {
     public void setCarros(List<CarroEntity> carros) {
         this.carros = carros;
     }
+
+    public ClienteEntity(String cpf, String nome, LocalDate dataNascimento, List<CarroEntity> carros) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.carros = carros;
+    }
+
+    public ClienteEntity(String cpf, String nome, LocalDate dataNascimento) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
+
+    public ClienteEntity(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public ClienteEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "ClienteEntity{" +
+                "cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", carros=" + carros +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ClienteEntity that)) return false;
+
+        if (!getCpf().equals(that.getCpf())) return false;
+        if (getNome() != null ? !getNome().equals(that.getNome()) : that.getNome() != null) return false;
+        if (getDataNascimento() != null ? !getDataNascimento().equals(that.getDataNascimento()) : that.getDataNascimento() != null)
+            return false;
+        return getCarros() != null ? getCarros().equals(that.getCarros()) : that.getCarros() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCpf().hashCode();
+        result = 31 * result + (getNome() != null ? getNome().hashCode() : 0);
+        result = 31 * result + (getDataNascimento() != null ? getDataNascimento().hashCode() : 0);
+        result = 31 * result + (getCarros() != null ? getCarros().hashCode() : 0);
+        return result;
+    }
 }

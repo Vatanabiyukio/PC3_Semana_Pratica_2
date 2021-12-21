@@ -76,4 +76,61 @@ public class OficinaEntity implements Serializable {
     public void setCarros(List<CarroEntity> carros) {
         this.carros = carros;
     }
+
+    public OficinaEntity(Integer codigo, String nome, String especialidade, String endereco, List<CarroEntity> carros) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.endereco = endereco;
+        this.carros = carros;
+    }
+
+    public OficinaEntity(Integer codigo, String nome, String especialidade, String endereco) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.endereco = endereco;
+    }
+
+    public OficinaEntity(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public OficinaEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "OficinaEntity{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", especialidade='" + especialidade + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", carros=" + carros +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OficinaEntity that)) return false;
+
+        if (!getCodigo().equals(that.getCodigo())) return false;
+        if (getNome() != null ? !getNome().equals(that.getNome()) : that.getNome() != null) return false;
+        if (getEspecialidade() != null ? !getEspecialidade().equals(that.getEspecialidade()) : that.getEspecialidade() != null)
+            return false;
+        if (getEndereco() != null ? !getEndereco().equals(that.getEndereco()) : that.getEndereco() != null)
+            return false;
+        return getCarros() != null ? getCarros().equals(that.getCarros()) : that.getCarros() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCodigo().hashCode();
+        result = 31 * result + (getNome() != null ? getNome().hashCode() : 0);
+        result = 31 * result + (getEspecialidade() != null ? getEspecialidade().hashCode() : 0);
+        result = 31 * result + (getEndereco() != null ? getEndereco().hashCode() : 0);
+        result = 31 * result + (getCarros() != null ? getCarros().hashCode() : 0);
+        return result;
+    }
 }
